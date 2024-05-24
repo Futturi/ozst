@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  app:
+    build: ./
+    ports:
+      - 8080:8080
+    container_name: testapp
+    restart: unless-stopped
+    depends_on:
+      - sql
+  sql:
+    image: "postgres:latest"
+    container_name: "postg"
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    restart: unless-stopped

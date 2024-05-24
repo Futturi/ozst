@@ -1,0 +1,15 @@
+schema:
+  - schema.graphql
+exec:
+  filename: generated.go
+model:
+  filename: models_gen.go
+  package: ozst
+resolver:
+  layout: follow-schema
+  dir: postgre
+  package: postgre
+models:
+  ID:
+    model:
+      - github.com/99designs/gqlgen/graphql.ID

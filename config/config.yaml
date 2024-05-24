@@ -1,0 +1,6 @@
+host:     "postg"
+port:     "5432"
+username: "root"
+password: "root"
+dbname:   "root"
+sslmode:  "disable"

@@ -1,0 +1,26 @@
+type Post {
+    id: ID!
+    title: String!
+    content: String!
+    comments(disabled: Boolean = false): [Comment!]!
+    commentsAllowed: Boolean!
+}
+
+type Comment {
+    id: ID!
+    postId: ID!
+    parentId: ID
+    content: String!
+    children: [Comment!]!
+    deep: Int!
+}
+
+type Query {
+    posts(page: Int!): [Post!]!
+    post(id: ID!, page: Int!): Post
+}
+
+type Mutation {
+    createPost(title: String!, content: String!, commentsAllowed: Boolean!): Post!
+    createComment(postId: ID!, parentId: ID, content: String!): Comment!
+}
